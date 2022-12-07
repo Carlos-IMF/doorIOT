@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.webkit.WebView
+import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
@@ -19,8 +22,9 @@ import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
-    var SPREAD_SHEET_ID = "1zCI8_vLPaHqtKZ2mDxsoGo-Dy4kK8VcNiGlErxWXYbg"
-    var TABLE_REGISTRY = "registro"
+   // var SPREAD_SHEET_ID = "1zCI8_vLPaHqtKZ2mDxsoGo-Dy4kK8VcNiGlErxWXYbg"
+      var SPREAD_SHEET_ID = "15qwMYtltFK0Y7zFZwp4_OtryEuuqNsbNt13bw12QzaI"
+      var TABLE_REGISTRY = "Hoja 1"
     var sheetInJsonURL = "https://script.google.com/macros/s/AKfycbxucxlWrMloRZymvKKREnNlAY-c-FXVNHVru4y2duPozhOffPLUdDD4bquTBHxq85m1/exec?spreadsheetId=$SPREAD_SHEET_ID&sheet="
     var LOG_TAG = "IMF"
     private lateinit var recyclerRegistryAdapter: RecyclerRegistryAdapter
@@ -28,6 +32,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getRegistry()
+
+        val button = findViewById<Button>(R.id.BtnStart)
+        val webhook = findViewById<WebView>(R.id.webload)
+
+        button.setOnClickListener {
+            Toast.makeText(this, "solicitud enviada", Toast.LENGTH_SHORT).show()
+
+            webhook.loadUrl("https://maker.ifttt.com/trigger/new_user/json/with/key/df1zdR5ZjFFQuEIa0XLG0-")
+        }
+
+
     }
     fun initList(){
         recyclerView.setHasFixedSize(true)

@@ -25,5 +25,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/BtnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="añadir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <WebView
+        android:id="@+id/webload"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
